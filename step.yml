@@ -68,10 +68,14 @@ inputs:
     opts:
       title: "BITRISE GIT TAG"
       is_required: true
+  - supported_countries:
+    opts:
+      title: "Supported countries in '|' separated values. i.e. SG|TW|AU"
+      is_required: true
 
 outputs:
-  - TAG_FLAVOR:
+  - TAG_ENVIRONMENT:
     opts:
-      title: "The flavor of the tag"
-      summary: "The flavor of the tag"
-      description: "The flavor of the tag"
+      title: "Resulting tag environment"
+      summary: "Resulting tag environment from parsing input git tag"
+      description: "bitrise_git_tag input is parsed resulting to TAG_ENVIRONMENT output added in Environment Variables. i.e sg.qa, sg, tw.qa etc"
