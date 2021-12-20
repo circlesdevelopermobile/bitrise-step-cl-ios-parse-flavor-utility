@@ -1,6 +1,6 @@
-# CL iOS Tag Utility
+# CL iOS Parse Flavor from Branch Name Utility
 
-proccesses BITRISE_GIT_TAG environment variable and outputs flavor
+proccesses BITRISEIO_GIT_BRANCH_DEST environment variable and outputs flavor
 
 
 ## How to use this Step
