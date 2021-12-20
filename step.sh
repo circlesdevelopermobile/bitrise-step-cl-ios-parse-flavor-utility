@@ -7,6 +7,7 @@ echo "Routing received PR trigger - ${GIT_DESTINATION_BRANCH}"
 echo "------------------------"
 
 SUPPORTED_COUNTRIES=${supported_countries}
+SUPPORTED_COUNTRIES_LOWERCASE=`echo "${SUPPORTED_COUNTRIES}" | tr '[:upper:]' '[:lower:]'`
 TAG_REGEX="(${SUPPORTED_COUNTRIES})-master"
 
 if [ -z "$GIT_DESTINATION_BRANCH" ]; then
