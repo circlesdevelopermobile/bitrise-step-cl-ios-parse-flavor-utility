@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-GIT_DESTINATION_BRANCH=${bitrise_git_tag}
+GIT_DESTINATION_BRANCH=${bitrise_dest_branch}
 echo "------------------------"
 echo "Routing received PR trigger - ${GIT_DESTINATION_BRANCH}"
 echo "------------------------"
