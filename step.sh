@@ -1,32 +1,25 @@
 #!/bin/bash
 set -ex
 
-GIT_TAG=${bitrise_git_tag}
+GIT_DESTINATION_BRANCH=${bitrise_git_tag}
 echo "------------------------"
-echo "Routing received tag trigger - ${GIT_TAG}"
+echo "Routing received PR trigger - ${GIT_DESTINATION_BRANCH}"
 echo "------------------------"
 
 SUPPORTED_COUNTRIES=${supported_countries}
-TAG_REGEX="-(AS|RC[0-9]+)-(${SUPPORTED_COUNTRIES})$"
+TAG_REGEX="(${SUPPORTED_COUNTRIES})-master"
 
-if [ -z "$GIT_TAG" ]; then
-    echo "Error: BITRISE_GIT_TAG environment variable not found"
+if [ -z "$GIT_DESTINATION_BRANCH" ]; then
+    echo "Error: BITRISE_GIT_DESTINATION_BRANCH environment variable not found"
     exit 1
-elif [[ $GIT_TAG =~ $TAG_REGEX ]]; then
-    COUNTRY="${BASH_REMATCH[2]}"
+elif [[ $GIT_DESTINATION_BRANCH =~ $TAG_REGEX ]]; then
+    COUNTRY="${BASH_REMATCH[1]}"
     COUNTRY=`echo "${COUNTRY}" | tr '[:upper:]' '[:lower:]'`
-    TAG_TYPE="${BASH_REMATCH[1]}"
-    if [ "${TAG_TYPE}" = "AS" ]; then
-        FLAVOR="${COUNTRY}"
-    else
-        FLAVOR="${COUNTRY}.qa"
-    fi
-    
-    envman add --key TAG_ENVIRONMENT --value "${FLAVOR}"
+    FLAVOR="${COUNTRY}.qa"
+
+    envman add --key PR_UNIT_TEST_ENVIRONMENT --value "${FLAVOR}"
     exit 0
 else
-    echo "Error: Invalid Tag - ${GIT_TAG}"
+    echo "Error: Invalid Tag - ${GIT_DESTINATION_BRANCH}"
     exit 1
 fi
-
- 
