@@ -8,14 +8,14 @@
 # - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
 
 title: |-
-  CL iOS Tag Utility
+  CL iOS Parse Flavor from Branch Name Utility
 summary: |
-  proccesses BITRISE_GIT_TAG environment variable and outputs flavor
+  proccesses BITRISEIO_GIT_BRANCH_DEST environment variable and outputs flavor
 description: |
-  proccesses BITRISE_GIT_TAG environment variable and outputs flavor
-website: https://github.com/egfojas/bitrise-step-cl-ios-tag-utility
-source_code_url: https://github.com/egfojas/bitrise-step-cl-ios-tag-utility
-support_url: https://github.com/egfojas/bitrise-step-cl-ios-tag-utility/issues
+  proccesses BITRISEIO_GIT_BRANCH_DEST environment variable and outputs flavor
+website: https://github.com/thm14/bitrise-step-cl-ios-parse-flavor-utility/
+source_code_url: https://github.com/thm14/bitrise-step-cl-ios-parse-flavor-utility/
+support_url: https://github.com/thm14/bitrise-step-cl-ios-parse-flavor-utility/issues
 host_os_tags:
   - osx-10.10
   - ubuntu-16.04
@@ -64,9 +64,9 @@ toolkit:
 
 
 inputs:
-  - bitrise_git_tag: $BITRISE_GIT_TAG
+  - bitrise_dest_branch: $BITRISEIO_GIT_BRANCH_DEST
     opts:
-      title: "BITRISE GIT TAG"
+      title: "BITRISE DESTINATION BRANCH"
       is_required: true
   - supported_countries:
     opts:
@@ -74,8 +74,8 @@ inputs:
       is_required: true
 
 outputs:
-  - TAG_ENVIRONMENT:
+  - PR_UNIT_TEST_ENVIRONMENT:
     opts:
-      title: "Resulting tag environment"
-      summary: "Resulting tag environment from parsing input git tag"
-      description: "bitrise_git_tag input is parsed resulting to TAG_ENVIRONMENT output added in Environment Variables. i.e sg.qa, sg, tw.qa etc"
+      title: "Resulting unit test environment"
+      summary: "Resulting unit test environment from parsing input git destination branch"
+      description: "bitrise_dest_branch input is parsed resulting to PR_UNIT_TEST_ENVIRONMENT output added in Environment Variables. i.e sg.qa, au.qa, tw.qa etc"
