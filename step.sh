@@ -8,7 +8,7 @@ echo "------------------------"
 
 SUPPORTED_COUNTRIES=${supported_countries}
 SUPPORTED_COUNTRIES_LOWERCASE=`echo "${SUPPORTED_COUNTRIES}" | tr '[:upper:]' '[:lower:]'`
-TAG_REGEX="(${SUPPORTED_COUNTRIES})-master"
+TAG_REGEX="(${SUPPORTED_COUNTRIES_LOWERCASE})-master"
 
 if [ -z "$GIT_DESTINATION_BRANCH" ]; then
     echo "Error: BITRISE_GIT_DESTINATION_BRANCH environment variable not found"
