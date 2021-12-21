@@ -79,13 +79,3 @@ outputs:
       title: "Resulting unit test environment"
       summary: "Resulting unit test environment from parsing input git destination branch"
       description: "bitrise_dest_branch input is parsed resulting to PR_UNIT_TEST_ENVIRONMENT output added in Environment Variables. i.e sg.qa, au.qa, tw.qa etc"
-- TARGET_UNDER_TEST:
-    opts:
-      title: "Resulting app target"
-      summary: "Resulting app target from parsing input git destination branch"
-      description: "bitrise_dest_branch input is parsed resulting to TARGET_UNDER_TEST output added in Environment Variables. i.e Selfcare, Selfcare-Australia"
-- TARGET_APP_COUNTRY:
-    opts:
-      title: "Resulting xcargs flag to determine current app target country"
-      summary: "Resulting app target country flag from parsing input git destination branch"
-      description: "bitrise_dest_branch input is parsed resulting to TARGET_APP_COUNTRY output added in Environment Variables. i.e APP_TARGET_AUSTRALIA etc."
