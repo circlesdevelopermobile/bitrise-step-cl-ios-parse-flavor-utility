@@ -36,7 +36,7 @@ function setTargetEnvVars() {
   esac
 }
 
-GIT_DESTINATION_BRANCH=${bitrise_git_dest}
+GIT_DESTINATION_BRANCH=${bitrise_dest_branch}
 echo "------------------------"
 echo "Routing received PR trigger - ${GIT_DESTINATION_BRANCH}"
 echo "------------------------"
