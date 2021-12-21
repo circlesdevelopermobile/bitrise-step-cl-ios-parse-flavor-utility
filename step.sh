@@ -36,12 +36,12 @@ function setTargetEnvVars() {
   esac
 }
 
-GIT_DESTINATION_BRANCH=$1
+GIT_DESTINATION_BRANCH=${bitrise_git_dest}
 echo "------------------------"
 echo "Routing received PR trigger - ${GIT_DESTINATION_BRANCH}"
 echo "------------------------"
 
-SUPPORTED_COUNTRIES=$2
+SUPPORTED_COUNTRIES=${supported_countries}
 SUPPORTED_COUNTRIES_LOWERCASE=`echo "${SUPPORTED_COUNTRIES}" | tr '[:upper:]' '[:lower:]'`
 TAG_REGEX="(${SUPPORTED_COUNTRIES_LOWERCASE})-master"
 
